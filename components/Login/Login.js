@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 const initialState = {
   name: "",
@@ -16,12 +17,6 @@ const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const { data: session } = useSession();
   const [userData, setUserData] = useState([]);
-
-  const Router = useRouter();
-
-  const handleFacebookLogin = () => {};
-
-  const handleGoogleSignIn = () => {};
 
   const handleLogin = () => {};
 
@@ -39,15 +34,15 @@ const Login = () => {
               <h3 className="text-center text-xl font-bold">
                 Welcome, {session.user.email}
               </h3>
-              <button
-                onClick={signOut}
-                className="w-full border-0 text-white p-2 rounded-full block mt-5"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #64d2db, #e63df6)",
-                }}
-              >
-                Sign out
+              <img
+                src={session.user.image}
+                className="w-20 h-20 rounded-full mx-auto my-5"
+                alt=""
+              />
+              <button className="ml-4 bg-[#e1ab15] text-white py-3 px-5 mt-3 rounded-md">
+                <Link href="/restricted">
+                  <a>Go protected route</a>
+                </Link>
               </button>
             </div>
           ) : (
@@ -55,20 +50,10 @@ const Login = () => {
               <h3 className="text-center text-xl font-bold">
                 You are not signed in.
               </h3>
-              <button
-                onClick={signIn}
-                className="w-full border-0 text-white p-2 rounded-full block mt-5"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #64d2db, #e63df6)",
-                }}
-              >
-                Sign In
-              </button>
             </div>
           )}
 
-          {/* <div
+          <div
             className="bg-white  w-72 sm:w-96 p-9 rounded-md"
             style={{ marginTop: "30px" }}
           >
@@ -163,14 +148,14 @@ const Login = () => {
 
             <div className="flex justify-center items-center mt-4">
               <Icon
-                onClick={handleFacebookLogin}
-                icon="akar-icons:facebook-fill"
+                onClick={signIn}
+                icon="akar-icons:github-fill"
                 className="m-1 cursor-pointer text-4xl"
-                style={{ color: "#3e548d" }}
+                style={{ color: "#171515 " }}
               />
 
               <Icon
-                onClick={handleGoogleSignIn}
+                onClick={signIn}
                 icon="akar-icons:google-contained-fill"
                 className="m-1 cursor-pointer text-4xl"
                 style={{ color: "#d95447" }}
@@ -201,7 +186,7 @@ const Login = () => {
                 </span>
               )}
             </p>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
