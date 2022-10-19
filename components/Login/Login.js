@@ -39,11 +39,12 @@ const Login = () => {
                 className="w-20 h-20 rounded-full mx-auto my-5"
                 alt=""
               />
-              <button className="ml-4 bg-[#e1ab15] text-white py-3 px-5 mt-3 rounded-md">
-                <Link href="/restricted">
-                  <a>Go protected route</a>
-                </Link>
-              </button>
+
+              <Link href="/restricted">
+                <a className="ml-4 bg-[#e1ab15] text-white py-3 px-5 mt-3 rounded-md">
+                  Go protected route
+                </a>
+              </Link>
             </div>
           ) : (
             <div>

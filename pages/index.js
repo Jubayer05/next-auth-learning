@@ -35,16 +35,17 @@ export default function Home() {
         <p>
           You are Not signed in <br />
         </p>
-        <button className="bg-[blue] text-white py-3 px-5 mt-3 rounded-md">
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
-        </button>
-        <button className="ml-4 bg-[darkblue] text-white py-3 px-5 mt-3 rounded-md">
-          <Link href="/restricted">
-            <a>Go protected route</a>
-          </Link>
-        </button>
+        <Link href="/login">
+          <a className="bg-[blue] text-white py-3 px-5 mt-3 rounded-md">
+            Login
+          </a>
+        </Link>
+
+        <Link href="/restricted">
+          <a className="ml-4 bg-[darkblue] text-white py-3 px-5 mt-3 rounded-md">
+            Go protected route
+          </a>
+        </Link>
       </div>
     </div>
   );
